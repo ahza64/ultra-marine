@@ -2,6 +2,15 @@
 practice python calculator
 """
 import sys
+# from ultra_marine import calc
+# Calc = calc.Calc()
+
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
 
 class Calc:
     num1 = None
