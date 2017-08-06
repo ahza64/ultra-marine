@@ -4,16 +4,19 @@ practice python calculator
 import sys
 import foo
 
-from flask import Flask
+from flask import Flask, jsonify, request
+
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+        return 'Hello, World!'
 
-@app.route('/calculator')
+@app.route('/calculator', methods=['POST'])
 def calculator():
-    return "these aren't the droids you're looking for"
+    print "CUSSSSS: ", request.get_json()
+    if request.get_json()["name"] == "postman":
+        return "these aren't the droids you're looking for"
 
 if __name__ == "__main__":
 
